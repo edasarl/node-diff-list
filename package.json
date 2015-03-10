@@ -1,0 +1,23 @@
+{
+  "name": "diff-list",
+  "version": "0.0.1",
+  "description": "Compare two arrays of objects and return a list of transformations",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/edasarl/node-diff-list.git"
+  },
+  "keywords": [
+    "diff",
+    "compare",
+    "transform"
+  ],
+  "author": "Jérémy Lal <kapouer@melix.org>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/edasarl/node-diff-list/issues"
+  }
+}
