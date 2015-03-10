@@ -1,10 +1,10 @@
 {
   "name": "diff-list",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Compare two arrays of objects and return a list of transformations",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test/tests.js"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,8 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/edasarl/node-diff-list/issues"
+  },
+  "dependencies": {
+    "deep-equal": "^1.0.0"
   }
 }
