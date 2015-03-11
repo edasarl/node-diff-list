@@ -19,7 +19,7 @@ module.exports = function diffResource(src, dst, opts) {
 		var srcItems = hash[pk];
 		if (srcItems && srcItems.length) {
 			var srcItem = srcItems.shift();
-			if (!equal(dstItem, srcItem)) {
+			if (!equal(srcItem, dstItem)) {
 				transforms.put.push(dstItem);
 			}
 			if (srcItems.length == 0) delete hash[pk];
