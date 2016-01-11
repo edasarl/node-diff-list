@@ -16,16 +16,27 @@ module.exports = function diffResource(src, dst, opts) {
 
 	dst.forEach(function(dstItem) {
 		var pk = dstItem[key];
-		var srcItems = hash[pk];
-		if (srcItems && srcItems.length) {
-			var srcItem = srcItems.shift();
-			if (!equal(srcItem, dstItem)) {
-				transforms.put.push(dstItem);
+		// keep only different items
+		var found = false;
+		var srcItems = (hash[pk] || []).filter(function(srcItem) {
+			var same = equal(srcItem, dstItem);
+			if (!found && same) found = true;
+			return !same;
+		});
+		hash[pk] = srcItems;
+		if (!found) {
+			if (srcItems.length) {
+				// update first item
+				var srcItem = srcItems.shift();
+				if (!equal(srcItem, dstItem)) {
+					transforms.put.push(dstItem);
+				}
+			} else {
+				// new item
+				transforms.post.push(dstItem);
 			}
-			if (srcItems.length == 0) delete hash[pk];
-		} else {
-			transforms.post.push(dstItem);
 		}
+		if (srcItems.length == 0) delete hash[pk];
 	});
 
 	for (pk in hash) transforms.del = transforms.del.concat(hash[pk]);
