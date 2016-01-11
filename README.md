@@ -5,11 +5,14 @@ diff-list -- Compare two arrays of objects and return a list of transformations
 Usage
 -----
 
+```
 var diff = require('diff-list');
 
-var transforms = diff(rows1, rows2, {key: '_id'});
-
-// transforms is {put: [..], post: [..], del: [..]}
+var transforms = diff(srcRows, dstRows, {key: 'id'});
+```
+returns `{put: [..], post: [..], del: [..]}`
+transformations needed to be applied to src to obtain dst,
+not taking into account ordering.
 
 
 Options
