@@ -1,6 +1,6 @@
 {
   "name": "diff-list",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Compare two arrays of objects and return a list of transformations",
   "main": "index.js",
   "scripts": {
