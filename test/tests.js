@@ -82,3 +82,18 @@ test([
 	]
 });
 
+test([
+	{id: 2, url: 'http://domain2.com', text: 'text2'}
+], [
+	{id: 2, url: 'http://domain2.com', text: 'text1'},
+	{id: 2, url: 'http://domain2.com', text: 'text2'},
+	{id: 2, url: 'http://domain2.com', text: 'text2'}
+], {
+	put: [ { id: 2, url: 'http://domain2.com', text: 'text1' } ],
+	post: [
+		{ id: 2, url: 'http://domain2.com', text: 'text2' },
+		{ id: 2, url: 'http://domain2.com', text: 'text2' }
+	],
+	del: []
+});
+
